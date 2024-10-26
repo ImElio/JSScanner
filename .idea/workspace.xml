@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="456b1a0f-d752-45b8-b8ab-3e9764d794e9" name="Changes" comment="Fix Indentation and Platform-Specific Signal Handling&#10;&#10;Corrected indentation in the platform check block to prevent IndentationError and updated signal handling to conditionally register SIGTSTP based on the operating system, ensuring compatibility across Windows and Unix-like systems. Improved code clarity and reliability for cross-platform use.">
+    <list default="true" id="456b1a0f-d752-45b8-b8ab-3e9764d794e9" name="Changes" comment="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/scanner.py" afterDir="false" />
     </list>
@@ -103,7 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1729960978975</updated>
       <workItem from="1729960983979" duration="297000" />
-      <workItem from="1729961295785" duration="4682000" />
+      <workItem from="1729961295785" duration="5507000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -121,7 +121,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729963442392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use.">
+      <option name="closed" value="true" />
+      <created>1729968870534</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1729968870534</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,6 +149,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first commit" />
     <MESSAGE value="Fix Indentation and Platform-Specific Signal Handling&#10;&#10;Corrected indentation in the platform check block to prevent IndentationError and updated signal handling to conditionally register SIGTSTP based on the operating system, ensuring compatibility across Windows and Unix-like systems. Improved code clarity and reliability for cross-platform use." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix Indentation and Platform-Specific Signal Handling&#10;&#10;Corrected indentation in the platform check block to prevent IndentationError and updated signal handling to conditionally register SIGTSTP based on the operating system, ensuring compatibility across Windows and Unix-like systems. Improved code clarity and reliability for cross-platform use." />
+    <MESSAGE value="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use." />
   </component>
 </project>
