@@ -1,0 +1,386 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1729961003736)
++++ b/.idea/misc.xml	(date 1729961003736)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Black">
++    <option name="sdkName" value="Python 3.12 (JSScanner 1.0)" />
++  </component>
++  <component name="ProjectRootManager" version="2" project-jdk-name="Python 3.12 (JSScanner 1.0)" project-jdk-type="Python SDK" />
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1729960985338)
++++ b/.idea/vcs.xml	(date 1729960985338)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: requirements.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/requirements.txt b/requirements.txt
+new file mode 100644
+--- /dev/null	(date 1729961090357)
++++ b/requirements.txt	(date 1729961090357)
+@@ -0,0 +1,4 @@
++requests
++beautifulsoup4
++pystyle
++colorama
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1729960984346)
++++ b/.idea/.gitignore	(date 1729960984346)
+@@ -0,0 +1,8 @@
++# Default ignored files
++/shelf/
++/workspace.xml
++# Editor-based HTTP Client requests
++/httpRequests/
++# Datasource local storage ignored files
++/dataSources/
++/dataSources.local.xml
+Index: .idea/discord.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/discord.xml b/.idea/discord.xml
+new file mode 100644
+--- /dev/null	(date 1729961020012)
++++ b/.idea/discord.xml	(date 1729961020012)
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="DiscordProjectSettings">
++    <option name="show" value="PROJECT_FILES" />
++    <option name="description" value="" />
++    <option name="applicationTheme" value="default" />
++    <option name="iconsTheme" value="default" />
++    <option name="button1Title" value="" />
++    <option name="button1Url" value="" />
++    <option name="button2Title" value="" />
++    <option name="button2Url" value="" />
++    <option name="customApplicationId" value="" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/inspectionProfiles/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/inspectionProfiles/profiles_settings.xml b/.idea/inspectionProfiles/profiles_settings.xml
+new file mode 100644
+--- /dev/null	(date 1729960985331)
++++ b/.idea/inspectionProfiles/profiles_settings.xml	(date 1729960985331)
+@@ -0,0 +1,6 @@
++<component name="InspectionProjectProfileManager">
++  <settings>
++    <option name="USE_PROJECT_PROFILE" value="false" />
++    <version value="1.0" />
++  </settings>
++</component>
+\ No newline at end of file
+Index: .idea/material_theme_project_new.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/material_theme_project_new.xml b/.idea/material_theme_project_new.xml
+new file mode 100644
+--- /dev/null	(date 1729960978833)
++++ b/.idea/material_theme_project_new.xml	(date 1729960978833)
+@@ -0,0 +1,17 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="MaterialThemeProjectNewConfig">
++    <option name="metadata">
++      <MTProjectMetadataState>
++        <option name="migrated" value="true" />
++        <option name="pristineConfig" value="false" />
++        <option name="userId" value="564952ad:192c68167f5:-7ffa" />
++      </MTProjectMetadataState>
++    </option>
++    <option name="titleBarState">
++      <MTProjectTitleBarConfigState>
++        <option name="overrideColor" value="false" />
++      </MTProjectTitleBarConfigState>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+new file mode 100644
+--- /dev/null	(date 1729961003687)
++++ b/main.py	(date 1729961003687)
+@@ -0,0 +1,197 @@
++from enum import unique
++from random import choice
++
++import requests
++import re
++import argparse
++import json
++import signal
++import sys
++import os
++import colorama
++
++## colorama
++from colorama import Fore, Style
++from bs4 import BeautifulSoup
++from pystyle import Center, Colors, Colorate, System, Write
++from urllib3 import request
++from urllib3.exceptions import InsecureRequestWarning
++
++colorama.init(autoreset=True)
++
++# import logo
++logo = """
++
++   _____                                     ____           
++  / ___/_________ _____  ____  ___  _____   / __ \_________ 
++  \__ \/ ___/ __ `/ __ \/ __ \/ _ \/ ___/  / /_/ / ___/ __ \
++ ___/ / /__/ /_/ / / / / / / /  __/ /     / ____/ /  / /_/ /
++/____/\___/\__,_/_/ /_/_/ /_/\___/_/     /_/   /_/   \____/ 
++• Forked & Modified By Elio
++• Version 1.0 (Pro)
++==========================
++==========================
++Original Author & Repo: (https://github.com/fa-rrel)
++==========================
++==========================
++ ╔════════════════════════════════════════════════════════════════╗   
++"║                                                                ║
++"║      I highly recommend using this tool by using Kali Linux OS ║
++"║                                                                ║
++"║      By using this tool it means you agree with terms,         ║
++"║      conditions, and risks                                     ║
++"║                                                                ║
++"║      By using this tool you agree that                         ║
++"║      1. use for legitimate security testing                    ║
++"║      2. not for crime                                          ║
++"║      3. the use of this tool solely for                        ║
++"║         educational reasons only                               ║
++"║                                                                ║
++"║      By using this tool you agree that                         ║
++"║      1. You are willing to be charged with criminal or state   ║
++"║         law applicable by law enforcement officers             ║
++"║         and government when abused                             ║
++"║      2. the risk is borne by yourself                          ║
++"║                                                                ║
++"║         Thank you and happy pentest                            ║
++"║                                                                ║
++"╚════════════════════════════════════════════════════════════════╝                       
++"""
++
++print(Colorate.Diagonal(Colors.purple_to_red, logo))
++
++def extract_links_from_js(js_content):
++    url_pattern = r'(https?://[^\s\'"<>]+)'
++    return re.findall(url_pattern, js_content)
++
++
++
++def extract_secrets(js_content):
++    secret_patterns = {
++        'AWS Access Key': r'(?i)AWS_Access_Key\s*:\s*[\'"]?([A-Z0-9]{20})[\'"]?',
++        'AWS Secret Key': r'(?i)AWS_Secret_Key\s*:\s*[\'"]?([A-Za-z0-9/+=]{40})[\'"]?',
++        'Stripe Secret Key': r'(?i)Stripe_Secret_Key\s*:\s*[\'"]?([A-Za-z0-9]{24})[\'"]?',
++        'GitHub Token': r'(?i)GitHub Token\s*:\s*[\'"]?([A-Za-z0-9]{36})[\'"]?',
++        'Facebook Token': r'(?i)Facebook_Token\s*:\s*[\'"]?([A-Za-z0-9\.]+)[\'"]?',
++        'Telegram Bot Token': r'(?i)Telegram Bot Token\s*:\s*[\'"]?([A-Za-z0-9:]+)[\'"]?',
++        'Google Maps API Key': r'(?i)Google Maps API Key\s*:\s*[\'"]?([A-Za-z0-9_-]+)[\'"]?',
++        'Google reCAPTCHA Key': r'(?i)Google reCAPTCHA Key\s*:\s*[\'"]?([A-Za-z0-9_-]+)[\'"]?',
++        'API Key': r'(?i)API_Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?',
++        'Secret Key': r'(?i)Secret_Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?',
++        'Auth Domain': r'(?i)Auth_Domain\s*:\s*[\'"]?([A-Za-z0-9\-]+\.[a-z]{2,})[\'"]?',
++        'Database URL': r'(?i)Database_URL\s*:\s*[\'"]?([^\'" ]+)[\'"]?',
++        'Storage Bucket': r'(?i)Storage_Bucket\s*:\s*[\'"]?([^\'" ]+)[\'"]?',
++        'Cloud Storage API Key': r'(?i)Cloud Storage API Key\s*:\s*[\'"]?([A-Za-z0-9_-]{32,})[\'"]?'
++    }
++
++    def find_secrets(js_content, secret_patterns):
++        detected_secrets = {}
++        for key, pattern in secret_patterns.items():
++            found = re.findall(pattern, js_content)
++            if found:
++                unique_found = list(set(found))
++                detected_secrets[key] = unique_found
++
++
++        obj_pattern = r'(?i)const\s+[A-Z_]+_KEYS\s*=\s*\{([^}]+)\}'
++        obj_matches = re.findall(obj_pattern, js_content)
++
++        for obj in obj_matches:
++            for entry in obj.split(','):
++                entry = entry.strip()
++                for key in secret_patterns.keys():
++                    if key.lower().replace(' ', '_') in entry.lower():
++                        value_match = re.search(r'\:\s*[\'"]?([^\'", ]+)[\'"]?', entry)
++                        if value_match:
++                            detected_secrets[key] = detected_secrets.get(key, []) + [value_match.group(1)]
++
++        return detected_secrets
++
++    def interrupt_handler(signal_received, frame):
++        answer = input(f"{Fore.YELLOW}[INFO]{Style.RESET_ALL} Do you wish to close? (Y/N): ").strip().lower()
++        if answer == 'y':
++            print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Shutting down... goodbye!")
++            sys.exit(0)
++        else:
++            print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Resuming...")
++
++    def execute_main(input_path, output_path, search_secrets, search_urls, single_link):
++        os.system('cls' if os.name == 'nt' else 'clear')
++        print("Welcome to the Script")
++
++        requests.packages.urllib3.disable_warnings(requests.packages.urllib3.exceptions.InsecureRequestWarning)
++
++        js_files = [single_link] if single_link else open(input_path, 'r').readlines()
++
++        collected_links = []
++        collected_secrets = {}
++
++        for js_file in js_files:
++            js_file = js_file.strip()
++            if not js_file:
++                continue
++
++            try:
++                response = requests.get(js_file, verify=False)
++                response.raise_for_status()
++
++                if search_urls:
++                    found_links = extract_links_from_js(response.text)
++                    collected_links.extend(found_links)
++                    print(
++                        f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Extracted {len(found_links)} links from {js_file}{Style.RESET_ALL}")
++
++                    for link in found_links:
++                        print(f"{Fore.GREEN}[+] {link}{Style.RESET_ALL}")
++                    if not found_links:
++                        print(
++                            f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No URLs found in {js_file}{Style.RESET_ALL}")
++
++                if search_secrets:
++                    secrets = find_secrets(response.text)
++                    if secrets:
++                        collected_secrets[js_file] = secrets
++                        print(
++                            f"{Fore.GREEN}[+] Secrets found in {js_file}: {json.dumps(secrets, indent=2)}{Style.RESET_ALL}")
++                    else:
++                        print(
++                            f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No secrets found in {js_file}{Style.RESET_ALL}")
++
++            except requests.exceptions.SSLError as ssl_error:
++                print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} SSL error with {js_file}: {str(ssl_error)}")
++            except requests.RequestException as err:
++                print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Failed to retrieve {js_file}: {str(err)}")
++
++        if collected_links and search_urls:
++            with open(output_path, 'w') as file:
++                file.writelines(link + '\n' for link in collected_links)
++            print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Links saved to {output_path}{Style.RESET_ALL}")
++
++        if collected_secrets and search_secrets:
++            secrets_file_path = output_path.replace('.txt', '_secrets.json')
++            with open(secrets_file_path, 'w') as secrets_file:
++                json.dump(collected_secrets, secrets_file, indent=2)
++            print(
++                f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Secrets saved to {secrets_file_path}{Style.RESET_ALL}")
++
++    if __name__ == "__main__":
++        signal.signal(signal.SIGINT, interrupt_handler)
++        signal.signal(signal.SIGTSTP, interrupt_handler)
++
++        parser = argparse.ArgumentParser(description='Extract links and secrets from JavaScript files.')
++        parser.add_argument('input_path', nargs='?', help='Path to file with JavaScript URLs')
++        parser.add_argument('-o', '--output_path', default='extracted_links.txt', help='Path to save extracted links')
++        parser.add_argument('-u', '--url', help='Single JavaScript URL to fetch')
++        parser.add_argument('--secrets', action='store_true', help='Search for secrets in JavaScript content')
++        parser.add_argument('--urls', action='store_true', help='Extract URLs from JavaScript content')
++        args = parser.parse_args()
++
++        if not args.input_path and not args.url:
++            print(
++                f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Provide an input file or single URL.{Style.RESET_ALL}")
++            sys.exit(1)
++        if args.url and args.input_path:
++            print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Specify only an input file or single URL, not both.")
++            sys.exit(1)
++
++        execute_main(args.input_path, args.output_path, args.secrets, args.urls, args.url)
+\ No newline at end of file
+Index: .idea/JSScanner 1.0.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/JSScanner 1.0.iml b/.idea/JSScanner 1.0.iml
+new file mode 100644
+--- /dev/null	(date 1729960985317)
++++ b/.idea/JSScanner 1.0.iml	(date 1729960985317)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<module type="PYTHON_MODULE" version="4">
++  <component name="NewModuleRootManager">
++    <content url="file://$MODULE_DIR$">
++      <excludeFolder url="file://$MODULE_DIR$/.venv" />
++    </content>
++    <orderEntry type="inheritedJdk" />
++    <orderEntry type="sourceFolder" forTests="false" />
++  </component>
++</module>
+\ No newline at end of file
+Index: .idea/modules.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+new file mode 100644
+--- /dev/null	(date 1729960985319)
++++ b/.idea/modules.xml	(date 1729960985319)
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectModuleManager">
++    <modules>
++      <module fileurl="file://$PROJECT_DIR$/.idea/JSScanner 1.0.iml" filepath="$PROJECT_DIR$/.idea/JSScanner 1.0.iml" />
++    </modules>
++  </component>
++</project>
+\ No newline at end of file

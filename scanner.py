@@ -8,18 +8,19 @@ import os
 import colorama
 from colorama import Fore, Style
 from pystyle import Center, Colors, Colorate
+import platform
 
 colorama.init(autoreset=True)
 
-banner = """
-  ____                                  
- / ___|  ___ __ _ _ __  _ __   ___ _ __ 
+banner = r"""
+  ____
+ / ___|  ___ __ _ _ __  _ __   ___ _ __
  \___ \ / __/ _` | '_ \| '_ \ / _ \ '__|
-  ___) | (_| (_| | | | | | | |  __/ |   
- |____/ \___\__,_|_| |_|_| |_|\___|_|   
-                                                                           
-✔ Creator: Elio(TOOL Developer) 
-✔ Collaborator: NotKronoos(Front-End)        
+  ___) | (_| (_| | | | | | | |  __/ |
+ |____/ \___\__,_|_| |_|_| |_|\___|_|
+
+✔ Creator: Elio(TOOL Developer)
+✔ Collaborator: NotKronoos(Front-End)
 """
 
 print(Colorate.Diagonal(Colors.purple_to_red, banner))
@@ -142,7 +143,8 @@ def run_extraction(input_file, output_file, find_secrets, find_urls, specific_ur
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    signal.signal(signal.SIGTSTP, signal_handler)
+    if platform.system() != 'Windows':
+        signal.signal(signal.SIGTSTP, signal_handler)
 
     parser = argparse.ArgumentParser(description='Extract links and secrets from JavaScript files.')
     parser.add_argument('input_file', nargs='?', help='File containing JavaScript links')
@@ -160,3 +162,4 @@ if __name__ == "__main__":
         sys.exit(1)
 
     run_extraction(args.input_file, args.output_file, args.secrets, args.urls, args.url)
+
