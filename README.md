@@ -2,12 +2,6 @@
 
 JSScanner 1.0 is a tool for analyzing JavaScript files to extract URLs and identify sensitive keys and APIs. Designed to support developers and security researchers, it offers a streamlined approach to analyzing scripts and improving application security. 🚀
 
----
-
-## ⚠️ **Caution:** This project is still in development.
-
----
-
 ## 📜 Features
 
 - **🔗 URL Extraction**: Finds and saves all links within JavaScript files.
