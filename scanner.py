@@ -12,17 +12,33 @@ import platform
 
 colorama.init(autoreset=True)
 
-banner = r"""
 
+def menu():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print(Colorate.Horizontal(Colors.red_to_yellow, """
+    ╔══════════════════════════════════════════════════╗
+    ║                                                  ║
+    ║               JavaScript Extractor               ║
+    ║                                                  ║
+    ╠══════════════════════════════════════════════════╣
+    ║   [1] - Start Scanner                            ║
+    ║   [2] - Exit                                     ║
+    ╚══════════════════════════════════════════════════╝
+    """))
+    choice = input(f"{Fore.YELLOW}Select an option: {Style.RESET_ALL}").strip()
+    return choice
+
+
+banner = r"""
 
    _____                                     ___ ____ 
   / ___/_________ _____  ____  ___  _____   <  // __ \
   \__ \/ ___/ __ `/ __ \/ __ \/ _ \/ ___/   / // / / /
  ___/ / /__/ /_/ / / / / / / /  __/ /      / // /_/ / 
 /____/\___/\__,_/_/ /_/_/ /_/\___/_/      /_(_)____/  
-                                                      
-    • Creator: Elio(TOOL Developer)
-    • Collaborator: NotKronoos(Front-End)
+
+    • Creator: Elio (TOOL Developer)
+    • Collaborator: NotKronoos (Front-End)
 
     ╔════════════════════════════════════════════════════════════════╗
     ║                                                                ║
@@ -50,12 +66,7 @@ banner = r"""
     ╚════════════════════════════════════════════════════════════════╝
 
     ════════════════════════════════════════════════════════════════
-    ════════════════════════════════════════════════════════════════
-    ════════════════════════════════════════════════════════════════
-    ════════════════════════════════════════════════════════════════
 """
-
-print(Colorate.Diagonal(Colors.purple_to_red, banner))
 
 
 def find_links_in_js(content):
@@ -63,7 +74,6 @@ def find_links_in_js(content):
     return re.findall(regex, content)
 
 
-## Pattern by (https://github.com/fa-rrel)
 def uncover_secrets(content):
     patterns = {
         'AWS Access Key': r'(?i)AWS_Access_Key\s*:\s*[\'"]?([A-Z0-9]{20})[\'"]?',
@@ -140,20 +150,24 @@ def run_extraction(input_file, output_file, find_secrets, find_urls, specific_ur
             if find_urls:
                 links = find_links_in_js(response.text)
                 collected_links.extend(links)
-                print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Found {len(links)} links in {js_url}{Style.RESET_ALL}")
+                print(
+                    f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Found {len(links)} links in {js_url}{Style.RESET_ALL}")
 
                 for link in links:
                     print(f"{Fore.GREEN}[+] {link}{Style.RESET_ALL}")
                 if not links:
-                    print(f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No URLs detected in {js_url}{Style.RESET_ALL}")
+                    print(
+                        f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No URLs detected in {js_url}{Style.RESET_ALL}")
 
             if find_secrets:
                 secrets = uncover_secrets(response.text)
                 if secrets:
                     discovered_secrets[js_url] = secrets
-                    print(f"{Fore.GREEN}[+] Secrets identified in {js_url}: {json.dumps(secrets, indent=2)}{Style.RESET_ALL}")
+                    print(
+                        f"{Fore.GREEN}[+] Secrets identified in {js_url}: {json.dumps(secrets, indent=2)}{Style.RESET_ALL}")
                 else:
-                    print(f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No secrets identified in {js_url}{Style.RESET_ALL}")
+                    print(
+                        f"{Fore.RED}[INFO]{Style.RESET_ALL} {Fore.YELLOW}No secrets identified in {js_url}{Style.RESET_ALL}")
 
         except requests.exceptions.SSLError as ssl_err:
             print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} SSL error when accessing {js_url}: {str(ssl_err)}")
@@ -164,34 +178,35 @@ def run_extraction(input_file, output_file, find_secrets, find_urls, specific_ur
         with open(output_file, 'w') as out_file:
             for link in collected_links:
                 out_file.write(link + '\n')
-        print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Links have been saved to {output_file}{Style.RESET_ALL}")
+        print(
+            f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Links have been saved to {output_file}{Style.RESET_ALL}")
 
     if discovered_secrets and find_secrets:
         secrets_output_file = output_file.replace('.txt', '_secrets.json')
         with open(secrets_output_file, 'w') as secrets_file:
             json.dump(discovered_secrets, secrets_file, indent=2)
-        print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Secrets have been saved to {secrets_output_file}{Style.RESET_ALL}")
+        print(
+            f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW}Secrets have been saved to {secrets_output_file}{Style.RESET_ALL}")
 
 
 if __name__ == "__main__":
     signal.signal(signal.SIGINT, signal_handler)
-    if platform.system() != 'Windows':
-        signal.signal(signal.SIGTSTP, signal_handler)
 
-    parser = argparse.ArgumentParser(description='Extract links and secrets from JavaScript files.')
-    parser.add_argument('input_file', nargs='?', help='File containing JavaScript links')
-    parser.add_argument('-o', '--output_file', default='extracted_links.txt', help='File to save extracted links')
-    parser.add_argument('-u', '--url', help='Single JavaScript URL to fetch')
-    parser.add_argument('--secrets', action='store_true', help='Look for secrets in JavaScript content')
-    parser.add_argument('--urls', action='store_true', help='Extract URLs from JavaScript content')
-    args = parser.parse_args()
+    choice = menu()
+    if choice == '1':
+        parser = argparse.ArgumentParser(description="JavaScript URL and Secrets Extractor")
+        parser.add_argument("-i", "--input", required=True, help="Input file with list of JavaScript URLs")
+        parser.add_argument("-o", "--output", required=True, help="Output file for discovered URLs")
+        parser.add_argument("--find-urls", action="store_true", help="Extract URLs from JavaScript files")
+        parser.add_argument("--find-secrets", action="store_true", help="Extract secrets from JavaScript files")
+        parser.add_argument("--url", help="Specific JavaScript URL to scan")
 
-    if not args.input_file and not args.url:
-        print(f"{Fore.BLUE}[INFO]{Style.RESET_ALL} {Fore.YELLOW} Please provide either an input file or a single URL.{Style.RESET_ALL}")
-        sys.exit(1)
-    if args.url and args.input_file:
-        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Please provide either an input file or a single URL, not both.")
-        sys.exit(1)
+        args = parser.parse_args()
 
-    run_extraction(args.input_file, args.output_file, args.secrets, args.urls, args.url)
+        run_extraction(args.input, args.output, args.find_secrets, args.find_urls, args.url)
 
+    elif choice == '2':
+        print(f"{Fore.GREEN}[INFO]{Style.RESET_ALL} Exiting... Goodbye!")
+        sys.exit(0)
+    else:
+        print(f"{Fore.RED}[ERROR]{Style.RESET_ALL} Invalid choice. Please select 1 or 2.")
