@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="456b1a0f-d752-45b8-b8ab-3e9764d794e9" name="Changes" comment="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use.">
+    <list default="true" id="456b1a0f-d752-45b8-b8ab-3e9764d794e9" name="Changes" comment="chore: restore to backup version, reverting recent changes&#10;&#10;&#10;This commit reverts the codebase to the last known stable backup version.&#10;All recent changes made after the backup have been discarded. The decision&#10;to revert was made due to the introduction of issues related to repeated &#10;prompts for accepting terms in the tool's execution. &#10;&#10;The tool will now correctly prompt for terms only once upon startup, &#10;ensuring a smoother user experience moving forward. All previous modifications &#10;have been removed, and the codebase is restored to its previous state.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scanner.py" beforeDir="false" afterPath="$PROJECT_DIR$/scanner.py" afterDir="false" />
     </list>
@@ -23,18 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ImElio"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ImElio&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ImElio/JSScanner",
-    "accountId": "8e200899-aac7-405e-b90c-2e8e5eb18884"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ImElio/JSScanner&quot;,
+    &quot;accountId&quot;: &quot;8e200899-aac7-405e-b90c-2e8e5eb18884&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
 }</component>
@@ -46,21 +46,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "ignore_missing_gitignore": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore_missing_gitignore&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="JSScanner 1.0" />
@@ -103,7 +103,8 @@
       <option name="presentableId" value="Default" />
       <updated>1729960978975</updated>
       <workItem from="1729960983979" duration="297000" />
-      <workItem from="1729961295785" duration="5507000" />
+      <workItem from="1729961295785" duration="7252000" />
+      <workItem from="1729989484388" duration="1626000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -129,7 +130,15 @@
       <option name="project" value="LOCAL" />
       <updated>1729968870534</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="chore: restore to backup version, reverting recent changes&#10;&#10;&#10;This commit reverts the codebase to the last known stable backup version.&#10;All recent changes made after the backup have been discarded. The decision&#10;to revert was made due to the introduction of issues related to repeated &#10;prompts for accepting terms in the tool's execution. &#10;&#10;The tool will now correctly prompt for terms only once upon startup, &#10;ensuring a smoother user experience moving forward. All previous modifications &#10;have been removed, and the codebase is restored to its previous state.">
+      <option name="closed" value="true" />
+      <created>1729969675106</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1729969675106</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +159,7 @@
     <MESSAGE value="first commit" />
     <MESSAGE value="Fix Indentation and Platform-Specific Signal Handling&#10;&#10;Corrected indentation in the platform check block to prevent IndentationError and updated signal handling to conditionally register SIGTSTP based on the operating system, ensuring compatibility across Windows and Unix-like systems. Improved code clarity and reliability for cross-platform use." />
     <MESSAGE value="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use." />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor tool startup logic to prompt for terms acceptance before proceeding&#10;&#10;Moved the terms acceptance prompt to the start of the program's execution.&#10;Ensured that users must accept the terms before providing an input file or URL.&#10;Updated the logic to handle invalid inputs gracefully, prompting users appropriately.&#10;Improved user experience by displaying a clear warning message with terms and conditions before proceeding with the main functionality of the scanner.cross-platform use." />
+    <MESSAGE value="chore: restore to backup version, reverting recent changes&#10;&#10;&#10;This commit reverts the codebase to the last known stable backup version.&#10;All recent changes made after the backup have been discarded. The decision&#10;to revert was made due to the introduction of issues related to repeated &#10;prompts for accepting terms in the tool's execution. &#10;&#10;The tool will now correctly prompt for terms only once upon startup, &#10;ensuring a smoother user experience moving forward. All previous modifications &#10;have been removed, and the codebase is restored to its previous state." />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: restore to backup version, reverting recent changes&#10;&#10;&#10;This commit reverts the codebase to the last known stable backup version.&#10;All recent changes made after the backup have been discarded. The decision&#10;to revert was made due to the introduction of issues related to repeated &#10;prompts for accepting terms in the tool's execution. &#10;&#10;The tool will now correctly prompt for terms only once upon startup, &#10;ensuring a smoother user experience moving forward. All previous modifications &#10;have been removed, and the codebase is restored to its previous state." />
   </component>
 </project>
